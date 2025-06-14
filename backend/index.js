@@ -11,8 +11,8 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("hello");
-});
-
+});  
+  
 app.use("/api/v1", Router); 
 
 app.listen(process.env.port || 3000, () => {

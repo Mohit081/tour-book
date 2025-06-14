@@ -10,40 +10,11 @@ import {
   Container,
 } from "@mui/material";
 import useGetAllTour from "../hooks/useGetAllTours";
-import { useDispatch, useSelector } from "react-redux";
-import store from "../store/store";
-
-const tourPackages = [
-  {
-    title: "GOLDEN TEMPLE TOUR",
-    image: "/image1.jpg",
-  },
-  {
-    title: "AMAZING KERELA TOUR",
-    image: "/image1.jpg",
-  },
-  {
-    title: "KASHMIR HOLIDAY TOUR",
-    image: "/image1.jpg",
-  },
-  {
-    title: "RAJASTHAN TOUR",
-    image: "/image1.jpg",
-  },
-  {
-    title: "TRIP TO GOA",
-    image: "/image1.jpg",
-  },
-  {
-    title: "NAINITAL ESCAPE",
-    image: "/image1.jpg",
-  },
-];
+import { useSelector } from "react-redux";
 
 const TourPackages = () => {
-
   useGetAllTour();
-  const {allTour} = useSelector((store) => store.tour)
+  const { allTour } = useSelector((store) => store.tour);
 
   return (
     <Container sx={{ mt: 6, mb: 6 }}>
@@ -67,9 +38,10 @@ const TourPackages = () => {
 
       <Grid container spacing={4}>
         {allTour.map((pkg, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4} columns={2}>
+          <Grid item key={index} xs={12} sm={6} md={4} >
             <Card
               sx={{
+                height:"100%",
                 overflow: "hidden",
                 borderRadius: 3,
                 display: "flex",
@@ -82,11 +54,11 @@ const TourPackages = () => {
                   transform: "translateY(-5px)",
                 },
               }}
-              
             >
               <CardMedia
                 component="img"
                 height="180"
+                width="259"
                 image={pkg.image}
                 alt={pkg.title}
                 sx={{ borderTopLeftRadius: 12, borderTopRightRadius: 12 }}
